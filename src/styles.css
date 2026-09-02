@@ -171,11 +171,6 @@
     animation: fade-up 0.9s var(--ease-out-expo) both;
   }
 
-  .img-frame {
-    outline: 1px solid rgb(243 241 236 / 0.1);
-    outline-offset: -1px;
-  }
-
   .brand-mark {
     display: block;
     height: 1.75rem;

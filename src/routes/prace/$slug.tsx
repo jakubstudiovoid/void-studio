@@ -91,7 +91,7 @@ function ProjectPage() {
                 <MetaRow label="Místo" value={project.location} />
                 <MetaRow label="Rok" value={project.year} />
                 <MetaRow label="Disciplína" value={project.category} />
-                <div className="border-b border-line py-4">
+                <div className="py-4">
                   <dt className="text-xs tracking-[0.16em] text-subtle uppercase">
                     Výstupy
                   </dt>

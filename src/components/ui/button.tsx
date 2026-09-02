@@ -10,7 +10,7 @@ const buttonVariants = cva(
       variant: {
         solid: "bg-fg text-bg hover:bg-steel hover:text-ink outline-fg",
         outline:
-          "border border-border bg-transparent text-fg hover:border-fg hover:bg-fg hover:text-bg outline-fg",
+          "border border-fg bg-transparent text-fg hover:bg-fg hover:text-bg outline-fg",
         ghost: "text-fg hover:text-steel outline-fg",
       },
       size: {
@@ -19,7 +19,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "solid",
+      variant: "outline",
       size: "md",
     },
   },
