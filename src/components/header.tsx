@@ -44,10 +44,8 @@ export function Header() {
       </a>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]",
-          scrolled || open
-            ? "border-b border-border bg-bg/90"
-            : "border-b border-transparent bg-transparent",
+          "fixed inset-x-0 top-0 z-50 transition-[background-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]",
+          scrolled || open ? "bg-bg/90" : "bg-transparent",
         )}
       >
         <div className="page-grid flex h-16 items-center justify-between md:h-[4.5rem]">

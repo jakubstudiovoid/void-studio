@@ -23,7 +23,7 @@ export function HomePage() {
 
 function Hero() {
   return (
-    <section className="bg-bg">
+    <section className="flex min-h-dvh flex-col bg-bg">
       <div className="page-grid pt-28 pb-12 md:pt-36 md:pb-16">
         <p className="hero-fade kicker" style={{ animationDelay: "0.2s" }}>
           {site.address.city}
@@ -60,21 +60,17 @@ function Hero() {
         </div>
       </div>
 
-      <div className="overflow-hidden border-y border-line">
-        <div className="page-grid">
-          <figure className="hero-photo img-frame overflow-hidden bg-bg-elevated">
-            <img
-              src="/images/hero.jpg"
-              alt="Ateliér studia VOID — sazba, papír, tisk"
-              width={1792}
-              height={1008}
-              className="aspect-video w-full object-cover"
-              fetchPriority="high"
-              decoding="async"
-            />
-          </figure>
-        </div>
-      </div>
+      <figure className="relative min-h-0 w-full flex-1 overflow-hidden bg-bg-elevated">
+        <img
+          src="/images/hero.jpg"
+          alt="Ateliér studia VOID — sazba, papír, tisk"
+          width={1792}
+          height={1008}
+          className="hero-photo absolute inset-0 size-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </figure>
     </section>
   );
 }
