@@ -70,7 +70,7 @@ export function Header() {
           <div className="hidden items-center gap-5 lg:flex">
             <Button asChild size="md">
               <Link to="/kontakt">
-                Poptávka
+                Kontakt
                 <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
               </Link>
             </Button>

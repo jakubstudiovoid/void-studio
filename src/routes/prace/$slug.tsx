@@ -26,7 +26,7 @@ function ProjectPage() {
   if (!project) throw notFound();
 
   const others = projects.filter((p) => p.slug !== project.slug).slice(0, 4);
-  const [cover, ...rest] = project.gallery;
+  const rest = project.gallery.slice(1);
 
   return (
     <SiteShell>
@@ -37,7 +37,7 @@ function ProjectPage() {
             className="inline-flex items-center gap-2 text-xs tracking-[0.16em] text-muted uppercase transition-colors duration-200 hover:text-fg"
           >
             <ArrowLeft className="size-3.5" strokeWidth={1.75} />
-            Práce
+            Portfolio
           </Link>
           <p className="mt-8 text-xs tracking-[0.2em] text-subtle uppercase">
             {project.year} — {project.category} — {project.location}
@@ -48,15 +48,17 @@ function ProjectPage() {
         </header>
 
         <div className="page-grid">
-          {cover ? (
-            <Placeholder
-              tone={project.tone}
-              aspect={cover.aspect}
-              index="01"
-              label={cover.label}
-              className="aspect-video"
+          <figure className="img-frame overflow-hidden bg-bg-elevated">
+            <img
+              src={project.image}
+              alt={project.title}
+              width={1600}
+              height={1200}
+              className="aspect-video w-full object-cover"
+              fetchPriority="high"
+              decoding="async"
             />
-          ) : null}
+          </figure>
         </div>
 
         <section className="page-grid py-14 md:py-20">
@@ -95,7 +97,7 @@ function ProjectPage() {
               </dl>
               <Button asChild className="mt-8" variant="outline">
                 <Link to="/kontakt">
-                  Poptávka
+                  Kontakt
                   <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
                 </Link>
               </Button>
@@ -122,7 +124,7 @@ function ProjectPage() {
 
         <section className="border-t border-line">
           <div className="page-grid py-14 md:py-16">
-            <p className="kicker mb-8">Další práce</p>
+            <p className="kicker mb-8">Další projekty</p>
             <ul className="divide-y divide-line border-y border-line">
               {others.map((p) => (
                 <li key={p.slug}>
@@ -149,7 +151,7 @@ function ProjectPage() {
               className="mt-10 inline-flex items-center gap-2 text-xs tracking-[0.16em] text-muted uppercase transition-colors duration-200 hover:text-fg"
             >
               <ArrowLeft className="size-3.5" strokeWidth={1.75} />
-              Zpět na veškerou práci
+              Zpět na portfolio
             </Link>
           </div>
         </section>

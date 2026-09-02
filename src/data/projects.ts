@@ -17,6 +17,7 @@ export type Project = {
   outputs: string[];
   featured: boolean;
   tone: ProjectTone;
+  image: string;
   gallery: ProjectShot[];
 };
 
@@ -46,6 +47,7 @@ export const projects: Project[] = [
     outputs: ["Web", "Art direction", "Copy"],
     featured: true,
     tone: "ph-01",
+    image: "/images/projects/kovovyroba-hrdlicka.jpg",
     gallery: shots(4),
   },
   {
@@ -65,6 +67,7 @@ export const projects: Project[] = [
     outputs: ["Web", "Identita", "Copy"],
     featured: true,
     tone: "ph-02",
+    image: "/images/projects/adamovsky-ocni-protezy.jpg",
     gallery: shots(4),
   },
   {
@@ -84,6 +87,7 @@ export const projects: Project[] = [
     outputs: ["Web", "Copy"],
     featured: true,
     tone: "ph-03",
+    image: "/images/projects/exmar.jpg",
     gallery: shots(4),
   },
   {
@@ -102,6 +106,7 @@ export const projects: Project[] = [
     outputs: ["Web", "Identita"],
     featured: true,
     tone: "ph-04",
+    image: "/images/projects/sweet-night-club.jpg",
     gallery: shots(4),
   },
   {
@@ -120,6 +125,7 @@ export const projects: Project[] = [
     outputs: ["Identita", "Web", "Kampaně"],
     featured: true,
     tone: "ph-05",
+    image: "/images/projects/ponorka.jpg",
     gallery: shots(4),
   },
   {
@@ -138,6 +144,7 @@ export const projects: Project[] = [
     outputs: ["Identita", "Web", "Tisk"],
     featured: true,
     tone: "ph-06",
+    image: "/images/projects/green-vision.jpg",
     gallery: shots(4),
   },
   {
@@ -156,6 +163,7 @@ export const projects: Project[] = [
     outputs: ["Identita", "Web", "Obal"],
     featured: false,
     tone: "ph-07",
+    image: "/images/projects/glide-edge.jpg",
     gallery: shots(4),
   },
 ];
@@ -195,7 +203,7 @@ export const toneClass: Record<ProjectTone, string> = {
 };
 
 export const aspectClass: Record<ProjectShot["aspect"], string> = {
-  cover: "aspect-4/5",
+  cover: "aspect-4/3",
   wide: "aspect-video",
   square: "aspect-square",
 };

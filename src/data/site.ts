@@ -16,7 +16,7 @@ export const site = {
 } as const;
 
 export const nav = [
-  { to: "/prace" as const, label: "Práce" },
+  { to: "/prace" as const, label: "Portfolio" },
   { to: "/studio" as const, label: "Studio" },
   { to: "/cenik" as const, label: "Ceník" },
   { to: "/kontakt" as const, label: "Kontakt" },

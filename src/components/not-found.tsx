@@ -12,7 +12,7 @@ export function NotFound() {
           Stránka nebyla nalezena
         </h1>
         <p className="mt-5 max-w-md text-sm leading-relaxed text-muted">
-          Požadovaná adresa neexistuje. Pokračujte na úvod nebo na práci.
+          Požadovaná adresa neexistuje. Pokračujte na úvod nebo do portfolia.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Button asChild>
@@ -20,7 +20,7 @@ export function NotFound() {
           </Button>
           <Button asChild variant="outline">
             <Link to="/prace">
-              Práce
+              Portfolio
               <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
             </Link>
           </Button>

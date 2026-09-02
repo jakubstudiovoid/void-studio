@@ -1,15 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { Placeholder } from "@/components/placeholder";
 import { Reveal } from "@/components/reveal";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({
   project,
   delay = 0,
+  priority = false,
 }: {
   project: Project;
   delay?: number;
+  priority?: boolean;
 }) {
   return (
     <Reveal delay={delay}>
@@ -18,8 +19,16 @@ export function ProjectCard({
         params={{ slug: project.slug }}
         className="group block"
       >
-        <div className="overflow-hidden bg-bg-elevated">
-          <Placeholder tone={project.tone} />
+        <div className="img-frame overflow-hidden bg-bg-elevated">
+          <img
+            src={project.image}
+            alt=""
+            width={1600}
+            height={1200}
+            className="img-zoom aspect-4/3 w-full object-cover"
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+          />
         </div>
         <p className="mt-4 text-xs tracking-[0.2em] text-subtle uppercase">
           {project.year} — {project.category}

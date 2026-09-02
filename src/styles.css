@@ -176,6 +176,13 @@
     outline-offset: -1px;
   }
 
+  .brand-mark {
+    display: block;
+    height: 1.75rem;
+    width: auto;
+    max-width: none;
+  }
+
   .img-zoom {
     transition: transform 2.4s var(--ease-out-expo);
   }

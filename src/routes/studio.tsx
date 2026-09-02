@@ -79,11 +79,11 @@ function StudioPage() {
         <div className="page-grid py-16 md:py-20">
           <Reveal>
             <h2 className="font-medium text-3xl tracking-tight">
-              Práce a poptávka
+              Portfolio a kontakt
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild>
-                <Link to="/prace">Práce</Link>
+                <Link to="/prace">Portfolio</Link>
               </Button>
               <Button asChild variant="outline">
                 <Link to="/kontakt">

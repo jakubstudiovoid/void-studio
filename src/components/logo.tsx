@@ -26,18 +26,16 @@ export function Logo({ className, onClick }: LogoProps) {
         }
       }}
       aria-label={`${site.brand} — nahoru`}
-      className={cn("inline-flex items-center gap-3", className)}
+      className={cn("inline-flex items-center py-2", className)}
     >
-      <span
-        aria-hidden="true"
-        className="size-5 border border-fg/80"
+      <img
+        src="/logo.png"
+        alt=""
+        width={53}
+        height={28}
+        className="brand-mark"
       />
-      <span className="flex flex-col justify-center leading-none">
-        <span className="text-2xs font-medium tracking-[0.2em] text-muted uppercase">
-          studio
-        </span>
-        <span className="mt-0.5 text-lg font-medium tracking-tight">VOID</span>
-      </span>
+      <span className="sr-only">{site.brand}</span>
     </Link>
   );
 }

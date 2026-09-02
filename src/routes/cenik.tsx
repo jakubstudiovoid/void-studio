@@ -140,7 +140,7 @@ function CenikPage() {
             </p>
             <Button asChild className="mt-8">
               <Link to="/kontakt">
-                Poptávka
+                Kontakt
                 <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
               </Link>
             </Button>

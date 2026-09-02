@@ -25,7 +25,7 @@ export const Route = createFileRoute("/prace/")({
   }),
   head: () =>
     seoHead(
-      "Práce",
+      "Portfolio",
       "Vybrané projekty studia VOID — weby, identity a kampaně. Jablonec nad Nisou.",
     ),
   component: PraceIndex,
@@ -40,7 +40,7 @@ function PraceIndex() {
 
   return (
     <SiteShell>
-      <PageHero kicker="Portfolio" title="Práce">
+      <PageHero kicker="Portfolio" title="Portfolio">
         Vybrané zakázky. Každý projekt má vlastní detail — klient, místo, rok,
         disciplína, výstupy.
       </PageHero>

@@ -4,14 +4,13 @@ import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { featuredProjects } from "@/data/projects";
-import { disciplines, processSteps, services } from "@/data/services";
+import { processSteps, services } from "@/data/services";
 import { site } from "@/data/site";
 
 export function HomePage() {
   return (
     <>
       <Hero />
-      <Disciplines />
       <Intro />
       <Featured />
       <ServicesPreview />
@@ -50,11 +49,11 @@ function Hero() {
           style={{ animationDelay: "0.5s" }}
         >
           <Button asChild variant="outline" size="lg">
-            <Link to="/prace">Práce</Link>
+            <Link to="/prace">Portfolio</Link>
           </Button>
           <Button asChild size="lg">
             <Link to="/kontakt">
-              Poptávka
+              Kontakt
               <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
             </Link>
           </Button>
@@ -63,41 +62,20 @@ function Hero() {
 
       <div className="overflow-hidden border-y border-line">
         <div className="page-grid">
-          <p
-            className="hero-photo py-10 font-medium text-void leading-none tracking-tight md:py-14"
-            aria-hidden="true"
-          >
-            VOID
-          </p>
+          <figure className="hero-photo img-frame overflow-hidden bg-bg-elevated">
+            <img
+              src="/images/hero.jpg"
+              alt="Ateliér studia VOID — sazba, papír, tisk"
+              width={1792}
+              height={1008}
+              className="aspect-video w-full object-cover"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
-      </div>
-      <div className="page-grid">
-        <p className="flex items-center justify-between gap-4 py-3 text-xs tracking-[0.18em] text-subtle uppercase">
-          <span>studio VOID</span>
-          <span>{site.address.city}</span>
-        </p>
       </div>
     </section>
-  );
-}
-
-function Disciplines() {
-  const loop = [...disciplines, ...disciplines, ...disciplines, ...disciplines];
-
-  return (
-    <div className="border-y border-line">
-      <p className="sr-only">Disciplíny: {disciplines.join(", ")}.</p>
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
-          {loop.map((item, i) => (
-            <span key={`${item}-${i}`} className="marquee-item">
-              <span>{item}</span>
-              <span className="marquee-sep" />
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -133,7 +111,7 @@ function Featured() {
       to="/prace"
       className="inline-flex items-center gap-2 text-xs tracking-[0.16em] uppercase transition-colors duration-200 hover:text-steel"
     >
-      Zobrazit veškerou práci
+      Zobrazit portfolio
       <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
     </Link>
   );
@@ -143,7 +121,7 @@ function Featured() {
       <div className="page-grid py-16 md:py-20">
         <div className="flex items-end justify-between gap-6">
           <Reveal>
-            <p className="kicker">Práce</p>
+            <p className="kicker">Portfolio</p>
             <h2 className="mt-4 font-medium text-4xl tracking-tight">
               Vybrané projekty
             </h2>
@@ -155,7 +133,12 @@ function Featured() {
 
         <div className="mt-10 grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
           {featuredProjects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} delay={i * 50} />
+            <ProjectCard
+              key={project.slug}
+              project={project}
+              delay={i * 50}
+              priority={i < 2}
+            />
           ))}
         </div>
 
@@ -298,7 +281,7 @@ function Cta() {
           <div className="mt-9 flex flex-wrap gap-3">
             <Button asChild size="lg">
               <Link to="/kontakt">
-                Poptávka
+                Kontakt
                 <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
               </Link>
             </Button>
