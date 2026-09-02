@@ -72,6 +72,18 @@ function ProjectPage() {
                   {p}
                 </p>
               ))}
+              {project.url ? (
+                <Button asChild className="mt-8">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Zobrazit web
+                    <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
+                  </a>
+                </Button>
+              ) : null}
             </Reveal>
             <Reveal className="md:col-span-4 md:col-start-9" delay={80}>
               <dl className="border-t border-line">
@@ -95,12 +107,6 @@ function ProjectPage() {
                   </dd>
                 </div>
               </dl>
-              <Button asChild className="mt-8" variant="outline">
-                <Link to="/kontakt">
-                  Kontakt
-                  <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
-                </Link>
-              </Button>
             </Reveal>
           </div>
         </section>

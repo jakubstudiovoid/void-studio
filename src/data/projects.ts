@@ -18,6 +18,7 @@ export type Project = {
   featured: boolean;
   tone: ProjectTone;
   image: string;
+  url?: string;
   gallery: ProjectShot[];
 };
 
@@ -48,6 +49,7 @@ export const projects: Project[] = [
     featured: true,
     tone: "ph-01",
     image: "/images/projects/kovovyroba-hrdlicka.jpg",
+    url: "https://www.kovohrdlicka.cz",
     gallery: shots(4),
   },
   {
@@ -68,6 +70,7 @@ export const projects: Project[] = [
     featured: true,
     tone: "ph-02",
     image: "/images/projects/adamovsky-ocni-protezy.jpg",
+    url: "https://www.ocniprotezyadamovsky.cz",
     gallery: shots(4),
   },
   {
@@ -88,6 +91,7 @@ export const projects: Project[] = [
     featured: true,
     tone: "ph-03",
     image: "/images/projects/exmar.jpg",
+    url: "https://www.ex-mar.cz",
     gallery: shots(4),
   },
   {
@@ -107,6 +111,7 @@ export const projects: Project[] = [
     featured: true,
     tone: "ph-04",
     image: "/images/projects/sweet-night-club.jpg",
+    url: "https://www.nightclubsweet.cz",
     gallery: shots(4),
   },
   {
@@ -126,6 +131,7 @@ export const projects: Project[] = [
     featured: true,
     tone: "ph-05",
     image: "/images/projects/ponorka.jpg",
+    url: "https://www.barponorka.cz",
     gallery: shots(4),
   },
   {
@@ -145,6 +151,7 @@ export const projects: Project[] = [
     featured: true,
     tone: "ph-06",
     image: "/images/projects/green-vision.jpg",
+    url: "https://www.greenvision.cz",
     gallery: shots(4),
   },
   {
@@ -164,6 +171,7 @@ export const projects: Project[] = [
     featured: false,
     tone: "ph-07",
     image: "/images/projects/glide-edge.jpg",
+    url: "https://www.glideedge.cz",
     gallery: shots(4),
   },
 ];
