@@ -75,7 +75,7 @@ export const projects: Project[] = [
   },
   {
     slug: "exmar",
-    title: "exmar",
+    title: "Elektroinstalace exmar",
     client: "exmar s.r.o.",
     location: "Jablonec nad Nisou",
     year: "2026",
