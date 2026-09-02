@@ -8,7 +8,7 @@ export function seoHead(title: string | undefined, description: string) {
       { name: "description", content: description },
       { name: "author", content: site.brand },
       { name: "robots", content: "index, follow" },
-      { name: "theme-color", content: "#0c0c0c" },
+      { name: "theme-color", content: "#000000" },
       { name: "apple-mobile-web-app-title", content: site.brand },
     ],
   };

@@ -18,7 +18,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: pageTitle() },
       { name: "description", content: site.description },
-      { name: "theme-color", content: "#0c0c0c" },
+      { name: "theme-color", content: "#000000" },
       { name: "format-detection", content: "telephone=yes" },
       { name: "geo.region", content: "CZ-LI" },
       { name: "geo.placename", content: site.address.city },

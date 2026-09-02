@@ -5,9 +5,9 @@
   --font-sans: "Space Grotesk Variable", "Space Grotesk", ui-sans-serif, system-ui,
     sans-serif;
 
-  --color-bg: #0c0c0c;
-  --color-bg-elevated: #141414;
-  --color-surface: #181816;
+  --color-bg: #000000;
+  --color-bg-elevated: #000000;
+  --color-surface: #000000;
   --color-fg: #f3f1ec;
   --color-muted: #8c8982;
   --color-subtle: #5e5c57;
@@ -15,7 +15,7 @@
   --color-line: #1f1f1c;
   --color-steel: #b4b8c0;
   --color-paper: #f3f1ec;
-  --color-ink: #0c0c0c;
+  --color-ink: #000000;
   --color-ink-muted: #5c5a55;
 
   --color-ph-01: #242422;
@@ -184,11 +184,12 @@
   }
 
   .img-zoom {
-    transition: transform 2.4s var(--ease-out-expo);
+    filter: grayscale(1);
+    transition: filter 1.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .group:hover .img-zoom {
-    transform: scale(1.02);
+    filter: grayscale(0);
   }
 
   .marquee {
@@ -340,7 +341,6 @@
   .img-zoom,
   .group:hover .img-zoom {
     transition: none;
-    transform: none;
   }
 
   .marquee-track {
