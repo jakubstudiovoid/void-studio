@@ -68,7 +68,7 @@ export const projects: Project[] = [
     outputs: ["Web", "Art direction", "Copy"],
     featured: true,
     tone: "ph-01",
-    image: "/images/projects/kovovyroba-hrdlicka.jpg",
+    image: "/images/projects/kovovyroba-hrdlicka-plot.jpg",
     url: "https://www.kovohrdlicka.cz",
     gallery: shots(4),
   },

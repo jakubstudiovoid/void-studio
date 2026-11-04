@@ -77,7 +77,20 @@ function Hero() {
   );
 }
 
+const slideFrom = (slug: "ponorka" | "sweet-night-club" | "kovovyroba-hrdlicka") => {
+  const project = getProject(slug);
+  if (!project) throw new Error(slug);
+  return {
+    title: project.title,
+    category: project.category,
+    image: project.image,
+    alt: project.title,
+    slug: project.slug,
+  };
+};
+
 const heroSlides = [
+  slideFrom("ponorka"),
   {
     title: "Edengarden",
     category: "Obal",
@@ -92,19 +105,8 @@ const heroSlides = [
     alt: "Billboard kampaně Peugeot New Boxer",
     slug: undefined as string | undefined,
   },
-  ...(["ponorka", "sweet-night-club", "kovovyroba-hrdlicka"] as const).map(
-    (slug) => {
-      const project = getProject(slug);
-      if (!project) throw new Error(slug);
-      return {
-        title: project.title,
-        category: project.category,
-        image: project.image,
-        alt: project.title,
-        slug: project.slug,
-      };
-    },
-  ),
+  slideFrom("sweet-night-club"),
+  slideFrom("kovovyroba-hrdlicka"),
 ];
 
 function HeroShow() {
