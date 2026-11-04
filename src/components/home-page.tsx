@@ -1,11 +1,13 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import { featuredProjects } from "@/data/projects";
+import { featuredProjects, getProject } from "@/data/projects";
 import { processSteps, services } from "@/data/services";
 import { site } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 export function HomePage() {
   return (
@@ -22,56 +24,186 @@ export function HomePage() {
 }
 
 function Hero() {
+  const disciplines = ["Identita", "Tisk", "Web", "Kampaně"];
+
   return (
-    <section className="flex min-h-dvh flex-col bg-bg">
-      <div className="page-grid pt-28 pb-12 md:pt-36 md:pb-16">
-        <p className="hero-fade kicker" style={{ animationDelay: "0.2s" }}>
+    <section className="relative flex min-h-dvh flex-col bg-bg">
+      <div className="page-grid flex flex-col pt-28 pb-8 md:pt-32 md:pb-10">
+        <p
+          className="hero-fade text-xs tracking-[0.18em] text-subtle uppercase"
+          style={{ animationDelay: "0.12s" }}
+        >
           {site.address.city}
         </p>
-        <h1 className="mt-5 font-medium text-hero tracking-tight">
+
+        <h1 className="mt-6 font-medium text-[clamp(3.4rem,7.6vw,7.25rem)] leading-[0.96] tracking-[-0.045em] md:mt-8">
           <span className="hero-line">
             <span>Grafika</span>
           </span>
           <span className="hero-line">
-            <span style={{ animationDelay: "0.1s" }}>a web</span>
+            <span style={{ animationDelay: "0.08s" }}>a web</span>
           </span>
         </h1>
-        <p
-          className="hero-fade page-hero-lead mt-6 max-w-md text-sm leading-relaxed text-muted md:text-base"
-          style={{ animationDelay: "0.35s" }}
-        >
-          Identita, tisk, web a kampaně.
-          <br />
-          Jablonec nad Nisou.
-        </p>
+
         <div
-          className="hero-fade mt-9 flex flex-wrap items-center gap-3"
-          style={{ animationDelay: "0.5s" }}
+          className="hero-fade mt-8 flex items-baseline justify-between gap-x-6 gap-y-3 md:mt-10"
+          style={{ animationDelay: "0.28s" }}
         >
-          <Button asChild variant="outline" size="lg">
-            <Link to="/prace">Portfolio</Link>
-          </Button>
-          <Button asChild size="lg">
-            <Link to="/kontakt">
-              Kontakt
-              <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
-            </Link>
-          </Button>
+          <ol className="flex flex-wrap gap-x-6 gap-y-2">
+            {disciplines.map((item, index) => (
+              <li
+                key={item}
+                className="text-xs tracking-[0.18em] text-muted uppercase"
+              >
+                <span className="mr-2 text-subtle">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {item}
+              </li>
+            ))}
+          </ol>
+          <Link
+            to="/prace"
+            className="inline-flex shrink-0 items-center gap-2 text-xs tracking-[0.18em] uppercase transition-colors duration-200 hover:text-steel"
+          >
+            Portfolio
+            <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
+          </Link>
         </div>
       </div>
 
-      <figure className="relative min-h-0 w-full flex-1 overflow-hidden bg-bg-elevated">
-        <img
-          src="/images/hero.jpg"
-          alt="Ateliér studia VOID — sazba, papír, tisk"
-          width={1792}
-          height={1008}
-          className="hero-photo absolute inset-0 size-full object-cover"
-          fetchPriority="high"
-          decoding="async"
-        />
-      </figure>
+      <HeroShow />
     </section>
+  );
+}
+
+const heroSlides = [
+  {
+    title: "Edengarden",
+    category: "Obal",
+    image: "/images/hero-edengarden.jpg",
+    alt: "Obal Edengarden Raspberry Fusion",
+    slug: undefined as string | undefined,
+  },
+  {
+    title: "Peugeot Boxer",
+    category: "Kampaň",
+    image: "/images/hero-boxer.jpg",
+    alt: "Billboard kampaně Peugeot New Boxer",
+    slug: undefined as string | undefined,
+  },
+  ...(["ponorka", "sweet-night-club", "kovovyroba-hrdlicka"] as const).map(
+    (slug) => {
+      const project = getProject(slug);
+      if (!project) throw new Error(slug);
+      return {
+        title: project.title,
+        category: project.category,
+        image: project.image,
+        alt: project.title,
+        slug: project.slug,
+      };
+    },
+  ),
+];
+
+function HeroShow() {
+  const [index, setIndex] = useState(0);
+  const paused = useRef(false);
+  const count = heroSlides.length;
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      if (paused.current || document.hidden) return;
+      setIndex((current) => (current + 1) % count);
+    }, 6800);
+    return () => window.clearInterval(id);
+  }, [count]);
+
+  const slide = heroSlides[index];
+  if (!slide) return null;
+
+  return (
+    <figure
+      className="relative min-h-0 w-full flex-1 overflow-hidden bg-bg"
+      onMouseEnter={() => {
+        paused.current = true;
+      }}
+      onMouseLeave={() => {
+        paused.current = false;
+      }}
+    >
+      {heroSlides.map((item, i) => {
+        const image = (
+          <img
+            src={item.image}
+            alt={i === index ? item.alt : ""}
+            width={1600}
+            height={1200}
+            className={cn(
+              "hero-slide absolute inset-0 size-full object-cover",
+              i === index ? "opacity-100" : "opacity-0",
+            )}
+            fetchPriority={i === 0 ? "high" : "low"}
+            decoding="async"
+          />
+        );
+
+        if (!item.slug) {
+          return (
+            <div key={item.image} className="absolute inset-0">
+              {image}
+            </div>
+          );
+        }
+
+        return (
+          <Link
+            key={item.slug}
+            to="/prace/$slug"
+            params={{ slug: item.slug }}
+            tabIndex={i === index ? 0 : -1}
+            aria-hidden={i !== index}
+            className={cn(
+              "absolute inset-0",
+              i === index ? "z-[1]" : "pointer-events-none",
+            )}
+          >
+            {image}
+          </Link>
+        );
+      })}
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/75 to-transparent" />
+      <figcaption className="absolute inset-x-0 bottom-0 z-10">
+        <div className="page-grid flex items-end justify-between gap-6 pb-5">
+          <p className="text-sm tracking-tight text-fg">
+            <span className="mr-3 text-xs tracking-[0.18em] text-subtle uppercase">
+              {slide.category}
+            </span>
+            {slide.title}
+          </p>
+          <div className="flex items-center gap-3">
+            {heroSlides.map((item, i) => (
+              <button
+                key={item.title}
+                type="button"
+                aria-label={item.title}
+                aria-current={i === index ? "true" : undefined}
+                onClick={() => setIndex(i)}
+                className={cn(
+                  "text-xs tracking-[0.16em] transition-colors duration-300",
+                  i === index ? "text-fg" : "text-fg/40 hover:text-fg/70",
+                )}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </button>
+            ))}
+          </div>
+        </div>
+      </figcaption>
+    </figure>
   );
 }
 

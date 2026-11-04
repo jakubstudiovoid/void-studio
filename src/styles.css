@@ -154,7 +154,9 @@
   }
 
   .hero-line {
+    display: block;
     overflow: hidden;
+    padding-bottom: 0.06em;
   }
 
   .hero-line > span {
@@ -165,6 +167,10 @@
   .hero-photo {
     display: block;
     animation: hero-zoom 1.4s var(--ease-out-expo) both;
+  }
+
+  .hero-slide {
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hero-fade {
@@ -331,6 +337,10 @@
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
+  }
+
+  .hero-slide {
+    transition: none;
   }
 
   .img-zoom,
