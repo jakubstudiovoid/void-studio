@@ -32,6 +32,26 @@ const shots = (count: number): ProjectShot[] => {
 
 export const projects: Project[] = [
   {
+    slug: "ponorka",
+    title: "Bar Ponorka",
+    client: "Bar Ponorka",
+    location: "Jablonec nad Nisou",
+    year: "2025",
+    category: "Identita",
+    excerpt: "Identita a web nočního podniku. Tmavý jazyk, plakátová sazba.",
+    body: [
+      "Ponorka je noční podnik. Zadání: vizuální jazyk, který obstojí na plakátu i na webu.",
+      "Systém staví na velké typografii, omezené paletě a tmavém poli. Žádné dekorace, které by podnik přebíjely.",
+      "Výstupem je značka, sada nosičů a web.",
+    ],
+    outputs: ["Identita", "Web", "Kampaně"],
+    featured: true,
+    tone: "ph-05",
+    image: "/images/projects/ponorka.jpg",
+    url: "https://www.barponorka.cz",
+    gallery: shots(4),
+  },
+  {
     slug: "kovovyroba-hrdlicka",
     title: "Kovovýroba Hrdlička",
     client: "Kovovýroba Hrdlička",
@@ -112,26 +132,6 @@ export const projects: Project[] = [
     tone: "ph-04",
     image: "/images/projects/sweet-night-club.jpg",
     url: "https://www.nightclubsweet.cz",
-    gallery: shots(4),
-  },
-  {
-    slug: "ponorka",
-    title: "Bar Ponorka",
-    client: "Bar Ponorka",
-    location: "Jablonec nad Nisou",
-    year: "2025",
-    category: "Identita",
-    excerpt: "Identita a web nočního podniku. Tmavý jazyk, plakátová sazba.",
-    body: [
-      "Ponorka je noční podnik. Zadání: vizuální jazyk, který obstojí na plakátu i na webu.",
-      "Systém staví na velké typografii, omezené paletě a tmavém poli. Žádné dekorace, které by podnik přebíjely.",
-      "Výstupem je značka, sada nosičů a web.",
-    ],
-    outputs: ["Identita", "Web", "Kampaně"],
-    featured: true,
-    tone: "ph-05",
-    image: "/images/projects/ponorka.jpg",
-    url: "https://www.barponorka.cz",
     gallery: shots(4),
   },
   {
