@@ -6,7 +6,7 @@ export function AppErrorComponent({ error }: ErrorComponentProps) {
       <p className="text-xs tracking-[0.22em] text-muted uppercase">Chyba</p>
       <h1 className="font-medium text-2xl tracking-tight">Něco se pokazilo</h1>
       <p className="max-w-md text-sm break-words leading-relaxed text-muted">
-        {error.message || "Neočekávaná chyba. Obnovte stránku."}
+        {(error instanceof Error ? error.message : "") || "Neočekávaná chyba. Obnovte stránku."}
       </p>
     </main>
   );

@@ -22,14 +22,6 @@ export type Project = {
   gallery: ProjectShot[];
 };
 
-const shots = (count: number): ProjectShot[] => {
-  const aspects: ProjectShot["aspect"][] = ["cover", "wide", "square", "cover"];
-  return Array.from({ length: count }, (_, i) => ({
-    label: i === 0 ? "Úvodní" : `Fotografie 0${i + 1}`,
-    aspect: aspects[i] ?? "cover",
-  }));
-};
-
 export const projects: Project[] = [
   {
     slug: "ponorka",
@@ -49,7 +41,7 @@ export const projects: Project[] = [
     tone: "ph-05",
     image: "/images/projects/ponorka.jpg",
     url: "https://www.barponorka.cz",
-    gallery: shots(4),
+    gallery: [],
   },
   {
     slug: "kovovyroba-hrdlicka",
@@ -70,7 +62,7 @@ export const projects: Project[] = [
     tone: "ph-01",
     image: "/images/projects/kovovyroba-hrdlicka-plot.jpg",
     url: "https://www.kovohrdlicka.cz",
-    gallery: shots(4),
+    gallery: [],
   },
   {
     slug: "adamovsky-ocni-protezy",
@@ -91,7 +83,7 @@ export const projects: Project[] = [
     tone: "ph-02",
     image: "/images/projects/adamovsky-ocni-protezy.jpg",
     url: "https://www.ocniprotezyadamovsky.cz",
-    gallery: shots(4),
+    gallery: [],
   },
   {
     slug: "exmar",
@@ -112,7 +104,7 @@ export const projects: Project[] = [
     tone: "ph-03",
     image: "/images/projects/exmar.jpg",
     url: "https://www.ex-mar.cz",
-    gallery: shots(4),
+    gallery: [],
   },
   {
     slug: "sweet-night-club",
@@ -132,7 +124,7 @@ export const projects: Project[] = [
     tone: "ph-04",
     image: "/images/projects/sweet-night-club.jpg",
     url: "https://www.nightclubsweet.cz",
-    gallery: shots(4),
+    gallery: [],
   },
   {
     slug: "green-vision",
@@ -152,7 +144,7 @@ export const projects: Project[] = [
     tone: "ph-06",
     image: "/images/projects/green-vision.jpg",
     url: "https://www.greenvision.cz",
-    gallery: shots(4),
+    gallery: [],
   },
   {
     slug: "glide-edge",
@@ -172,7 +164,7 @@ export const projects: Project[] = [
     tone: "ph-07",
     image: "/images/projects/glide-edge.jpg",
     url: "https://www.glideedge.cz",
-    gallery: shots(4),
+    gallery: [],
   },
 ];
 

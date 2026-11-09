@@ -2,9 +2,9 @@ export const site = {
   name: "VOID",
   brand: "studio VOID",
   legalName: "studio VOID",
-  tagline: "Grafika, identita a web",
+  tagline: "Web design & vizuální identita",
   description:
-    "studio VOID — grafické a marketingové studio v Jablonci nad Nisou. Identita, tisk, web a kampaně.",
+    "Nezávislé designové studio z Jablonce nad Nisou. Osobité weby, vizuální identity a produktové vizuály. Od konceptu po realizaci.",
   email: "hello@studiovoid.cz",
   emailHref: "mailto:hello@studiovoid.cz",
   url: "https://studiovoid.cz",
