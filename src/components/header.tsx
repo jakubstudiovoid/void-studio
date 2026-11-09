@@ -63,7 +63,7 @@ export function Header() {
       </a>
       <header
         className={cn(
-          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color] duration-300",
+          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color] duration-700",
           scrolled || open ? "bg-bg/90" : "bg-bg/90",
         )}
       >
@@ -101,19 +101,19 @@ export function Header() {
             <span className="sr-only">Menu</span>
             <span
               className={cn(
-                "absolute h-px w-5 bg-fg transition-transform duration-200",
+                "absolute h-px w-5 bg-fg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 open ? "translate-y-0 rotate-45" : "-translate-y-1.5",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-5 bg-fg transition-opacity duration-200",
+                "absolute h-px w-5 bg-fg transition-opacity duration-500",
                 open ? "opacity-0" : "opacity-100",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-5 bg-fg transition-transform duration-200",
+                "absolute h-px w-5 bg-fg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 open ? "translate-y-0 -rotate-45" : "translate-y-1.5",
               )}
             />
@@ -125,7 +125,7 @@ export function Header() {
         ref={menuRef}
         id="mobile-navigation"
         className={cn(
-          "fixed inset-0 z-40 bg-bg transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-40 bg-bg transition-opacity duration-700 lg:hidden",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!open}
@@ -141,7 +141,7 @@ export function Header() {
                 key={item.to}
                 style={{ transitionDelay: open ? `${80 + i * 60}ms` : "0ms" }}
                 className={cn(
-                  "transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  "transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
                   open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
                 )}
               >
