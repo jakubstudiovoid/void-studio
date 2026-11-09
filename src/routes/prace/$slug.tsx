@@ -1,6 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { Placeholder } from "@/components/placeholder";
 import { Reveal } from "@/components/reveal";
 import { SiteShell } from "@/components/site-shell";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,9 @@ import { getProject, projects } from "@/data/projects";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/prace/$slug")({
+  beforeLoad: ({ params }) => {
+    if (!getProject(params.slug)) throw notFound();
+  },
   head: ({ params }) => {
     const project = getProject(params.slug);
     return seoHead(
@@ -26,7 +28,6 @@ function ProjectPage() {
   if (!project) throw notFound();
 
   const others = projects.filter((p) => p.slug !== project.slug).slice(0, 4);
-  const rest = project.gallery.slice(1);
 
   return (
     <SiteShell>
@@ -42,7 +43,7 @@ function ProjectPage() {
           <p className="mt-8 text-xs tracking-[0.2em] text-subtle uppercase">
             {project.year} — {project.category} — {project.location}
           </p>
-          <h1 className="mt-4 font-medium text-display tracking-tight">
+          <h1 className="mt-4 font-medium text-[clamp(2.5rem,6vw,6rem)] tracking-tight">
             {project.title}
           </h1>
         </header>
@@ -54,7 +55,7 @@ function ProjectPage() {
               alt={project.title}
               width={1600}
               height={1200}
-              className="aspect-video w-full object-cover"
+              className="w-full h-auto object-contain"
               fetchPriority="high"
               decoding="async"
             />
@@ -111,22 +112,7 @@ function ProjectPage() {
           </div>
         </section>
 
-        {rest.length > 0 ? (
-          <section className="border-t border-line">
-            <div className="page-grid grid gap-4 py-10">
-              {rest.map((shot, i) => (
-                <Reveal key={shot.label} delay={i * 70}>
-                  <Placeholder
-                    tone={project.tone}
-                    aspect={shot.aspect}
-                    index={`0${i + 2}`}
-                    label={shot.label}
-                  />
-                </Reveal>
-              ))}
-            </div>
-          </section>
-        ) : null}
+
 
         <section className="border-t border-line">
           <div className="page-grid py-14 md:py-16">

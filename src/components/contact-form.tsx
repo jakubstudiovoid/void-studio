@@ -35,9 +35,9 @@ export function ContactForm() {
     return (
       <div className="flex flex-col gap-4 border border-border p-8">
         <Check className="size-5" strokeWidth={1.5} />
-        <p className="text-lg tracking-tight">E-mailový klient je otevřen.</p>
+        <p className="text-lg tracking-tight">Poptávka je připravena k odeslání.</p>
         <p className="text-sm leading-relaxed text-muted">
-          Pokud se poštovní klient nespustil, napište přímo na{" "}
+          Zprávu odešlete ve svém e-mailovém programu. Pokud se nespustil, napište přímo na{" "}
           <a href={site.emailHref} className="underline">
             {site.email}
           </a>
@@ -101,7 +101,7 @@ export function ContactForm() {
       </label>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" size="lg">
-          Odeslat poptávku
+          Připravit e-mail
           <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
         </Button>
         <p className="max-w-xs text-xs leading-relaxed text-subtle">

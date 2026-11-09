@@ -1,5 +1,4 @@
 import { pageTitle, site } from "@/data/site";
-
 export function seoHead(title: string | undefined, description: string) {
   const full = pageTitle(title);
   return {
@@ -8,8 +7,17 @@ export function seoHead(title: string | undefined, description: string) {
       { name: "description", content: description },
       { name: "author", content: site.brand },
       { name: "robots", content: "index, follow" },
-      { name: "theme-color", content: "#000000" },
-      { name: "apple-mobile-web-app-title", content: site.brand },
+      { name: "theme-color", content: "#f5f4f0" },
+      { property: "og:title", content: full },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "cs_CZ" },
+      { property: "og:site_name", content: site.brand },
+      { property: "og:image", content: `${site.url}/og.jpg` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: full },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: `${site.url}/og.jpg` },
     ],
   };
 }

@@ -4,8 +4,6 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
-import { AuthProvider } from "@/lib/auth/provider";
-import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { JsonLd } from "@/components/json-ld";
 import { NotFound } from "@/components/not-found";
 import { pageTitle, site } from "@/data/site";
@@ -18,7 +16,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: pageTitle() },
       { name: "description", content: site.description },
-      { name: "theme-color", content: "#000000" },
+      { name: "theme-color", content: "#f5f4f0" },
       { name: "format-detection", content: "telephone=yes" },
       { name: "geo.region", content: "CZ-LI" },
       { name: "geo.placename", content: site.address.city },
@@ -26,8 +24,6 @@ export const Route = createRootRoute({
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
     ],
   }),
   notFoundComponent: NotFound,
@@ -41,10 +37,7 @@ function RootDocument() {
         <HeadContent />
       </head>
       <body className="bg-bg text-fg">
-        <PreviewHostBridge />
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
+        <Outlet />
         <JsonLd />
         <Scripts />
       </body>

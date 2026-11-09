@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/logo";
@@ -7,6 +7,8 @@ import { nav, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 export function Header() {
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -25,7 +27,24 @@ export function Header() {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+      if (e.key === "Tab" && open) {
+        const targets = [
+          toggleRef.current,
+          ...Array.from(menuRef.current?.querySelectorAll<HTMLAnchorElement>("a") ?? []),
+        ].filter(Boolean) as HTMLElement[];
+        const index = targets.indexOf(document.activeElement as HTMLElement);
+        const next = e.shiftKey
+          ? index <= 0
+            ? targets.length - 1
+            : index - 1
+          : (index + 1) % targets.length;
+        e.preventDefault();
+        targets[next]?.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => {
@@ -44,16 +63,13 @@ export function Header() {
       </a>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]",
-          scrolled || open ? "bg-bg/90" : "bg-transparent",
+          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color] duration-300",
+          scrolled || open ? "bg-bg/90" : "bg-bg/90",
         )}
       >
         <div className="page-grid flex h-16 items-center justify-between md:h-[4.5rem]">
           <Logo />
-          <nav
-            className="hidden items-center gap-6 lg:flex xl:gap-7"
-            aria-label="Hlavní"
-          >
+          <nav className="hidden items-center gap-6 lg:flex xl:gap-7" aria-label="Hlavní">
             {nav.map((item) => (
               <Link
                 key={item.to}
@@ -68,16 +84,18 @@ export function Header() {
           <div className="hidden items-center gap-5 lg:flex">
             <Button asChild size="md">
               <Link to="/kontakt">
-                Kontakt
+                Proberme projekt
                 <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
               </Link>
             </Button>
           </div>
           <button
+            ref={toggleRef}
             type="button"
             className="relative flex size-11 items-center justify-center lg:hidden"
             aria-label={open ? "Zavřít menu" : "Otevřít menu"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
@@ -104,11 +122,14 @@ export function Header() {
       </header>
 
       <div
+        ref={menuRef}
+        id="mobile-navigation"
         className={cn(
           "fixed inset-0 z-40 bg-bg transition-opacity duration-300 lg:hidden",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!open}
+        inert={!open}
       >
         <nav
           className="page-grid flex h-full flex-col justify-end pt-24 pb-10"

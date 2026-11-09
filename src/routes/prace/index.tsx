@@ -35,14 +35,13 @@ function PraceIndex() {
   const { typ } = Route.useSearch();
   const activeType = projectTypes.find((c) => categorySlug(c) === typ);
   const visible = activeType
-    ? projects.filter((p) => p.category === activeType)
+    ? projects.filter((p) => p.outputs.includes(activeType))
     : projects;
 
   return (
     <SiteShell>
       <PageHero kicker="Portfolio" title="Portfolio">
-        Vybrané zakázky. Každý projekt má vlastní detail — klient, místo, rok,
-        disciplína, výstupy.
+        Weby, vizuální identity a produktové světy. Každý s vlastním charakterem.
       </PageHero>
 
       <section className="page-grid py-14 md:py-20">

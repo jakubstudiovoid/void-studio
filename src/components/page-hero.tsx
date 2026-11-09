@@ -21,7 +21,7 @@ export function PageHero({
     >
       <div className="page-grid">
         <p className="kicker">{kicker}</p>
-        <h1 className="mt-5 font-medium text-display tracking-tight">{title}</h1>
+        <h1 className="mt-5 font-medium text-[clamp(3rem,7.5vw,7rem)] tracking-tight">{title}</h1>
         {children ? (
           <p className="page-hero-lead mt-5 max-w-xl text-sm leading-relaxed text-muted md:text-base">
             {children}
