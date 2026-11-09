@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Mark } from "@/components/mark";
 import { site } from "@/data/site";
 export function Footer() {
   return (
@@ -33,7 +34,8 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-wordmark" aria-hidden="true">
-          VOID<span>✳</span>
+          VOID
+          <Mark />
         </div>
       </div>
     </footer>

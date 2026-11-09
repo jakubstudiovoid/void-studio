@@ -9,16 +9,27 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const [onDark, setOnDark] = useState(pathname === "/");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const update = () => {
+      if (pathname !== "/") {
+        setOnDark(false);
+        return;
+      }
+      const hero = document.querySelector(".editorial-hero");
+      setOnDark(hero ? hero.getBoundingClientRect().bottom > 72 : false);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     setOpen(false);
@@ -63,8 +74,8 @@ export function Header() {
       </a>
       <header
         className={cn(
-          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color] duration-700",
-          scrolled || open ? "bg-bg/90" : "bg-bg/90",
+          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color,color,border-color] duration-700",
+          onDark && !open ? "is-dark" : "bg-bg/90",
         )}
       >
         <div className="page-grid flex h-16 items-center justify-between md:h-[4.5rem]">
@@ -82,7 +93,7 @@ export function Header() {
             ))}
           </nav>
           <div className="hidden items-center gap-5 lg:flex">
-            <Button asChild size="md">
+            <Button asChild size="md" className="header-cta">
               <Link to="/kontakt">
                 Proberme projekt
                 <ArrowUpRight className="size-3.5" strokeWidth={1.75} />
@@ -101,19 +112,19 @@ export function Header() {
             <span className="sr-only">Menu</span>
             <span
               className={cn(
-                "absolute h-px w-5 bg-fg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "absolute h-px w-5 bg-current transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 open ? "translate-y-0 rotate-45" : "-translate-y-1.5",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-5 bg-fg transition-opacity duration-500",
+                "absolute h-px w-5 bg-current transition-opacity duration-500",
                 open ? "opacity-0" : "opacity-100",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-5 bg-fg transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "absolute h-px w-5 bg-current transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 open ? "translate-y-0 -rotate-45" : "translate-y-1.5",
               )}
             />

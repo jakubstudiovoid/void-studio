@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { Mark } from "@/components/mark";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { getProject } from "@/data/projects";
@@ -10,7 +11,8 @@ const selection = ["green-vision", "adamovsky-ocni-protezy", "kovovyroba-hrdlick
 export function HomePage() {
   return (
     <>
-      <section className="editorial-hero page-grid">
+      <section className="editorial-hero">
+        <div className="page-grid hero-frame">
         <div className="hero-eyebrow">
           <span>
             <i className="status-dot" /> Nezávislé designové studio
@@ -38,6 +40,7 @@ export function HomePage() {
             <br />
             SELECTED WORK / 2025—26
           </span>
+        </div>
         </div>
       </section>
       <section className="page-grid selected-section" id="vyber">
@@ -72,7 +75,7 @@ export function HomePage() {
           </h2>
           <div className="statement-bottom">
             <span className="asterisk" aria-hidden="true">
-              ✳
+              <Mark />
             </span>
             <div>
               <p>

@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
+import { ImageLock } from "@/components/image-lock";
 import { JsonLd } from "@/components/json-ld";
 import { NotFound } from "@/components/not-found";
 import { pageTitle, site } from "@/data/site";
@@ -38,6 +39,7 @@ function RootDocument() {
       </head>
       <body className="bg-bg text-fg">
         <Outlet />
+        <ImageLock />
         <JsonLd />
         <Scripts />
       </body>

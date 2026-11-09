@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -6,22 +6,19 @@ import { Header } from "@/components/header";
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const first = useRef(true);
-  const [entered, setEntered] = useState(false);
 
   useEffect(() => {
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-    setEntered(false);
-    const frame = requestAnimationFrame(() => setEntered(true));
-    return () => cancelAnimationFrame(frame);
+    first.current = false;
   }, [pathname]);
 
   return (
     <div className="flex min-h-dvh flex-col bg-bg text-fg">
       <Header />
-      <main id="obsah" className={entered ? "page-transition flex-1 bg-bg" : "flex-1 bg-bg"}>
+      <main
+        id="obsah"
+        key={pathname}
+        className={first.current ? "flex-1 bg-bg" : "page-transition flex-1 bg-bg"}
+      >
         {children}
       </main>
       <Footer />
