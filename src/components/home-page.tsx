@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { Mark } from "@/components/mark";
@@ -91,24 +92,26 @@ export function HomePage() {
       </section>
       <section className="visual-notes">
         <div className="page-grid">
-          <div className="section-bar">
-            <span className="micro">03 / ZA HRANICÍ OBRAZOVKY</span>
-            <span className="micro">IDENTITA. OBAL. OBJEKT.</span>
-          </div>
-          <div className="notes-heading">
-            <h2>
-              Značka má
-              <br />
-              mnoho podob.
-            </h2>
-            <p>
-              Vizuální svět, který drží pohromadě.
-              <br />
-              Na webu, v ruce i v prostoru.
-            </p>
-          </div>
+          <Reveal>
+            <div className="section-bar">
+              <span className="micro">03 / ZA HRANICÍ OBRAZOVKY</span>
+              <span className="micro">IDENTITA. OBAL. OBJEKT.</span>
+            </div>
+            <div className="notes-heading">
+              <h2>
+                Značka má
+                <br />
+                mnoho podob.
+              </h2>
+              <p>
+                Vizuální svět, který drží pohromadě.
+                <br />
+                Na webu, v ruce i v prostoru.
+              </p>
+            </div>
+          </Reveal>
           <div className="notes-grid">
-            <figure>
+            <Reveal as="figure">
               <img
                 src="/images/hero-edengarden.jpg"
                 alt="Produktový vizuál Edengarden Raspberry Fusion s růžovým kouřem"
@@ -120,29 +123,31 @@ export function HomePage() {
                 <span>Edengarden</span>
                 <span>Obal & produktový vizuál</span>
               </figcaption>
-            </figure>
-            <Link to="/prace/$slug" params={{ slug: "glide-edge" }}>
-              <figure>
-                <img
-                  src="/images/projects/glide-edge.jpg"
-                  alt="Produktová prezentace Glide Edge"
-                  width="1600"
-                  height="1200"
-                  loading="lazy"
-                />
-                <figcaption>
-                  <span>Glide Edge</span>
-                  <span>
-                    Identita & obal <ArrowUpRight size={14} />
-                  </span>
-                </figcaption>
-              </figure>
-            </Link>
+            </Reveal>
+            <Reveal className="note-offset" delay={160}>
+              <Link to="/prace/$slug" params={{ slug: "glide-edge" }}>
+                <figure>
+                  <img
+                    src="/images/projects/glide-edge.jpg"
+                    alt="Produktová prezentace Glide Edge"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <span>Glide Edge</span>
+                    <span>
+                      Identita & obal <ArrowUpRight size={14} />
+                    </span>
+                  </figcaption>
+                </figure>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
       <section className="expertise page-grid">
-        <div>
+        <Reveal>
           <span className="micro">04 / CO SPOLU VYTVOŘÍME</span>
           <h2>
             Od nápadu.
@@ -151,56 +156,86 @@ export function HomePage() {
           <Link to="/cenik" className="text-link">
             Služby a orientační ceny <ArrowUpRight size={17} />
           </Link>
-        </div>
-        <div className="service-list">
-          {[
-            {
-              title: "Web design & vývoj",
-              text: "Promyšlená struktura, osobitý design a responzivní vývoj. Web od prvního wireframu až po spuštění.",
-              tags: "UX / UI DESIGN / DEVELOPMENT",
-            },
-            {
-              title: "Vizuální identita",
-              text: "Značka s vlastním jazykem. Logo, typografie a systém, který funguje napříč všemi výstupy.",
-              tags: "STRATEGIE / LOGO / BRAND SYSTEM",
-            },
-            {
-              title: "Art direction & grafika",
-              text: "Silné vizuály pro produkty i kampaně. Od obalu a tiskovin po ucelenou prezentaci značky.",
-              tags: "PACKAGING / VIZUÁLY / PRINT",
-            },
-          ].map((s, i) => (
-            <details key={s.title} open={i === 0}>
-              <summary>
-                <span className="micro">0{i + 1}</span>
-                <h3>{s.title}</h3>
-                <span className="service-toggle">+</span>
-              </summary>
-              <div className="service-body">
-                <p>{s.text}</p>
-                <span className="micro">{s.tags}</span>
-              </div>
-            </details>
-          ))}
-        </div>
+        </Reveal>
+        <Reveal delay={140}>
+          <div className="service-list">
+            {[
+              {
+                title: "Web design & vývoj",
+                text: "Promyšlená struktura, osobitý design a responzivní vývoj. Web od prvního wireframu až po spuštění.",
+                tags: "UX / UI DESIGN / DEVELOPMENT",
+              },
+              {
+                title: "Vizuální identita",
+                text: "Značka s vlastním jazykem. Logo, typografie a systém, který funguje napříč všemi výstupy.",
+                tags: "STRATEGIE / LOGO / BRAND SYSTEM",
+              },
+              {
+                title: "Art direction & grafika",
+                text: "Silné vizuály pro produkty i kampaně. Od obalu a tiskovin po ucelenou prezentaci značky.",
+                tags: "PACKAGING / VIZUÁLY / PRINT",
+              },
+            ].map((s, i) => (
+              <ServiceItem key={s.title} index={i} {...s} />
+            ))}
+          </div>
+        </Reveal>
       </section>
       <section className="process-band page-grid">
-        <span className="micro">JASNÝ POSTUP. PŘÍMÁ SPOLUPRÁCE.</span>
-        <div>
+        <Reveal>
+          <span className="micro">JASNÝ POSTUP. PŘÍMÁ SPOLUPRÁCE.</span>
+        </Reveal>
+        <div className="process-steps">
           {[
             { t: "Poznáme se", d: "Cíle, kontext a společný směr." },
             { t: "Najdeme výraz", d: "Koncept, struktura a vizuální jazyk." },
             { t: "Doladíme detaily", d: "Design, vývoj a testování." },
             { t: "Pošleme to do světa", d: "Spuštění, předání a další rozvoj." },
           ].map((s, i) => (
-            <div key={s.t}>
+            <Reveal key={s.t} delay={i * 110}>
               <span className="micro">0{i + 1}</span>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
     </>
+  );
+}
+
+function ServiceItem({
+  index,
+  title,
+  text,
+  tags,
+}: {
+  index: number;
+  title: string;
+  text: string;
+  tags: string;
+}) {
+  const [open, setOpen] = useState(index === 0);
+
+  return (
+    <details
+      open={open}
+      onToggle={(event) => {
+        const next = event.currentTarget.open;
+        setOpen((current) => (current === next ? current : next));
+      }}
+    >
+      <summary>
+        <span className="micro">0{index + 1}</span>
+        <h3>{title}</h3>
+        <span className="service-toggle">+</span>
+      </summary>
+      <div className="service-body">
+        <div className="service-body-inner">
+          <p>{text}</p>
+          <span className="micro">{tags}</span>
+        </div>
+      </div>
+    </details>
   );
 }

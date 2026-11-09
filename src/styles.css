@@ -150,20 +150,15 @@
 
   .reveal {
     opacity: 0;
-    transform: translate3d(0, 18px, 0);
-    filter: blur(2px);
+    transform: translate3d(0, 22px, 0);
     transition:
-      opacity 1.15s var(--ease-out-expo),
-      transform 1.25s var(--ease-out-expo),
-      filter 0.9s var(--ease-out-expo);
-    will-change: opacity, transform;
+      opacity 1.7s var(--ease-out-expo),
+      transform 1.9s var(--ease-out-expo);
   }
 
   .reveal.is-in {
     opacity: 1;
     transform: none;
-    filter: none;
-    will-change: auto;
   }
 
   .hero-line {
@@ -348,7 +343,7 @@
 @keyframes page-in {
   from {
     opacity: 0;
-    transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 14px, 0);
   }
   to {
     opacity: 1;
@@ -357,7 +352,7 @@
 }
 
 .page-transition {
-  animation: page-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: page-in 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes hero-wash {
@@ -739,7 +734,7 @@ html {
   align-items: start;
   gap: 35px;
 }
-.notes-grid > a {
+.notes-grid .note-offset {
   margin-top: 110px;
 }
 .notes-grid img {
@@ -747,7 +742,7 @@ html {
   aspect-ratio: 1.35;
   object-fit: cover;
 }
-.notes-grid > a img {
+.notes-grid .note-offset img {
   aspect-ratio: 1.05;
 }
 .notes-grid figcaption {
@@ -809,13 +804,23 @@ html {
   font-size: 25px;
   line-height: 1;
   font-weight: 300;
-  transition: transform 0.7s var(--ease-out-expo);
+  transition: transform 0.9s var(--ease-out-expo);
 }
 .service-list details[open] .service-toggle {
   transform: rotate(45deg);
 }
 .service-body {
-  padding: 0 30px 30px 40px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.75s var(--ease-out-expo);
+}
+.service-list details[open] .service-body {
+  grid-template-rows: 1fr;
+}
+.service-body-inner {
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 30px 28px 40px;
 }
 .service-body p {
   font-size: 15px;
@@ -826,13 +831,13 @@ html {
 .process-band {
   padding-bottom: 110px;
 }
-.process-band > div {
+.process-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   margin-top: 35px;
 }
-.process-band > div > div {
+.process-steps > div {
   border-top: 1px solid var(--color-line);
   padding-top: 20px;
 }
@@ -1022,10 +1027,10 @@ html {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  .notes-grid > a {
+  .notes-grid .note-offset {
     margin-top: 0;
   }
-  .notes-grid > a img {
+  .notes-grid .note-offset img {
     aspect-ratio: 1.35;
   }
   .expertise {
@@ -1041,13 +1046,13 @@ html {
   .service-list summary h3 {
     font-size: 23px;
   }
-  .service-body {
+  .service-body-inner {
     padding-left: 28px;
   }
   .process-band {
     padding-bottom: 60px;
   }
-  .process-band > div {
+  .process-steps {
     grid-template-columns: 1fr 1fr;
     gap: 30px 20px;
   }

@@ -11,7 +11,7 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
-  as?: "div" | "section" | "li" | "article" | "header";
+  as?: "div" | "section" | "li" | "article" | "header" | "figure";
 };
 
 export function Reveal({
@@ -37,7 +37,7 @@ export function Reveal({
           io.disconnect();
         }
       },
-      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
