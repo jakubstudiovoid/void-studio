@@ -142,7 +142,7 @@ export const projects: Project[] = [
     outputs: ["Identita", "Web", "Tisk"],
     featured: true,
     tone: "ph-06",
-    image: "/images/projects/green-vision.jpg",
+    image: "/images/projects/green-vision-mark.jpg",
     url: "https://www.greenvision.cz",
     gallery: [],
   },

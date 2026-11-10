@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource-variable/space-grotesk/wght.css";
+@import "@fontsource/grenze-gotisch/latin-900.css";
 
 @theme {
   --font-sans: "Space Grotesk Variable", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -357,12 +358,12 @@
 
 @keyframes hero-wash {
   from {
-    background-position: 0% 80%;
-    transform: scale(1);
+    background-position: 0% 90%;
+    transform: translate3d(-2%, 3%, 0) scale(1);
   }
   to {
-    background-position: 80% 20%;
-    transform: scale(1.08);
+    background-position: 70% 20%;
+    transform: translate3d(4%, -5%, 0) scale(1.12);
   }
 }
 
@@ -486,14 +487,15 @@ html {
 .editorial-hero::before {
   content: "";
   position: absolute;
-  inset: -25%;
+  inset: -28%;
   z-index: -1;
-  background:
-    radial-gradient(ellipse 72% 85% at 0% 115%, #ff69b4 0%, #ff3d96 16%, #8a1450 38%, transparent 68%),
-    linear-gradient(125deg, #4a0d28 0%, #1a0710 32%, #050203 62%, #000 100%);
-  background-size: 140% 140%;
-  animation: hero-wash 22s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 78% at 100% 0%, #ff69b4 0%, #ff3d96 16%, #7a1244 40%, transparent 68%),
+    radial-gradient(ellipse 52% 58% at 0% 112%, rgb(255 105 180 / 0.42) 0%, rgb(122 18 68 / 0.22) 32%, transparent 64%),
+    linear-gradient(215deg, #3d1026 0%, #12060c 40%, #000 72%);
+  background-size: 160% 160%;
+  animation: hero-wash 16s ease-in-out infinite alternate;
 }
 .hero-frame {
   position: relative;
@@ -519,7 +521,7 @@ html {
   margin-bottom: 36px;
 }
 .hero-title > span {
-  color: #9a9a96;
+  color: var(--accent);
 }
 .editorial-hero .round-link {
   border-color: rgb(243 242 238 / 0.42);
@@ -674,7 +676,7 @@ html {
   margin-top: 60px;
 }
 .studio-statement h2 span {
-  color: #8b8b8b;
+  color: var(--accent);
 }
 .statement-bottom {
   display: grid;
@@ -909,10 +911,11 @@ html {
   gap: 26px;
 }
 .footer-wordmark {
+  font-family: "Grenze Gotisch", serif;
   font-size: clamp(150px, 31vw, 480px);
-  font-weight: 600;
-  letter-spacing: -0.095em;
-  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 0.8;
   margin-top: 45px;
   padding-bottom: 0;
   position: relative;
