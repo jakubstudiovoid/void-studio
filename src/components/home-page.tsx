@@ -199,6 +199,9 @@ export function HomePage() {
             </Reveal>
           ))}
         </div>
+        <Link to="/spoluprace" className="text-link mt-8">
+          Celý postup a pravidla spolupráce <ArrowUpRight size={17} />
+        </Link>
       </section>
     </>
   );

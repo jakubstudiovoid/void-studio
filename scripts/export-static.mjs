@@ -9,6 +9,7 @@ const paths = [
   "/cenik",
   "/kontakt",
   "/soukromi",
+  "/spoluprace",
   ...slugs.map((s) => `/prace/${s}`),
 ];
 const origin = "https://studiovoid.cz";

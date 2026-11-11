@@ -12,7 +12,7 @@ npm run typecheck
 node scripts/check-portfolio.mjs
 ```
 
-Build nejprve vytvoří TanStack Start SSR aplikaci pro Vercel a poté exportuje všech 13 veřejných stránek do `dist/`. Statické HTML je čitelné bez JavaScriptu a po načtení se hydratuje. `dist/` obsahuje i 404, sitemap a robots.txt. Vercel může použít původní `.vercel/output`; statický hosting používá `dist/`.
+Build nejprve vytvoří TanStack Start SSR aplikaci pro Vercel a poté exportuje všech 14 veřejných stránek do `dist/`. Statické HTML je čitelné bez JavaScriptu a po načtení se hydratuje. `dist/` obsahuje i 404, sitemap a robots.txt. Vercel může použít původní `.vercel/output`; statický hosting používá `dist/`.
 
 ## Úpravy obsahu
 
@@ -29,3 +29,7 @@ V detailech nejsou fiktivní fotografie ani prázdné galerie. Další skutečn�
 Portfolio filtruje podle skutečných výstupů projektu (projekt může patřit do více kategorií). Menu podporuje klávesnici, Escape a řízení fokusu. Animace respektují reduced motion. Font je lokální. Bez analytických cookies, externích fontových služeb, uživatelských účtů a databáze v běhu webu.
 
 Kontaktní formulář **připravuje e-mail v programu návštěvníka**, neposílá jej ze serveru. Pro serverové odesílání je potřeba samostatně připojit e-mailovou službu. Formulář netvrdí, že byla zpráva odeslána.
+
+## Cenotvorba a spolupráce
+
+`src/data/pricing.ts` je společný zdroj balíčků, pravidel a FAQ. Stránky `/cenik` a `/spoluprace` ho zobrazují. Tlačítka balíčků předvyplňují nezávaznou poptávku. Interní ekonomika a pravidla pro sestavení nabídek jsou v `docs/PRICING-STRATEGY.md`; tento dokument není součástí publikovaného webu. Ceny jsou návrh pro nové objednávky, nemění již uzavřené zakázky. Před použitím na veřejné doméně potvrdit aktuální daňový režim studia.

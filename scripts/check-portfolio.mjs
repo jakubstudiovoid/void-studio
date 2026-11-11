@@ -8,6 +8,7 @@ const paths = [
   "/cenik",
   "/kontakt",
   "/soukromi",
+  "/spoluprace",
   "/prace/ponorka",
   "/prace/green-vision",
   "/prace/glide-edge",
@@ -46,6 +47,18 @@ assert.equal(
   (await server.fetch(new Request("https://studiovoid.cz/prace/does-not-exist"))).status,
   404,
 );
+const pricing = await readFile("dist/cenik/index.html", "utf8");
+for (const amount of ["24 000 Kč", "42 000 Kč", "68 000 Kč", "1 200 Kč / hod"]) assert.ok(pricing.includes(amount), amount);
+for (const service of ["Web / Start", "Web / Business", "Značka & web"]) {
+ const response = await server.fetch(new Request(`https://studiovoid.cz/kontakt?sluzba=${encodeURIComponent(service)}`));
+ const html = await response.text();
+ const escaped = service.replaceAll("&", "&amp;");
+ assert.ok(html.includes(`value="${escaped}" selected=""`), `Prefilled service: ${service}`);
+}
+const cooperation = await readFile("dist/spoluprace/index.html", "utf8");
+assert.equal((cooperation.match(/<details/g) || []).length, 10);
+assert.ok(cooperation.includes("Mlčení není schválení"));
+assert.ok(cooperation.includes("Oprava naší chyby se do kol nepočítá"));
 console.log(
-  "PASS: 13 prerendered routes, local assets, SEO, multi-discipline filters, unknown project 404.",
+  "PASS: 14 prerendered routes, local assets, SEO, multi-discipline filters, unknown project 404.",
 );
