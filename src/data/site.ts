@@ -18,7 +18,8 @@ export const site = {
 export const nav = [
   { to: "/prace" as const, label: "Portfolio" },
   { to: "/studio" as const, label: "Studio" },
-  { to: "/cenik" as const, label: "Ceník" },
+  { to: "/cenik" as const, label: "Služby a ceny" },
+  { to: "/spoluprace" as const, label: "Spolupráce" },
   { to: "/kontakt" as const, label: "Kontakt" },
 ];
 

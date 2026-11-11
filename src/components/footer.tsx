@@ -28,6 +28,7 @@ export function Footer() {
           <div>
             <Link to="/prace">Portfolio</Link>
             <Link to="/studio">Studio</Link>
+            <Link to="/spoluprace">Spolupráce</Link>
             <Link to="/soukromi">Soukromí</Link>
             <a href="#obsah">Nahoru ↑</a>
           </div>
