@@ -16,7 +16,7 @@ export function HomePage() {
         <div className="page-grid hero-frame">
         <div className="hero-eyebrow">
           <span>
-            <i className="status-dot" /> Nezávislé designové studio
+            <i className="status-dot" /> One-man designové studio
           </span>
           <span>Jablonec nad Nisou, CZ</span>
         </div>

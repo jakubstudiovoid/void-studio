@@ -158,7 +158,7 @@ export function Header() {
               >
                 <Link
                   to={item.to}
-                  className="block py-2 font-medium text-4xl leading-none tracking-tight text-fg"
+                  className="block py-2 font-medium text-4xl leading-none tracking-tight text-fg uppercase"
                 >
                   {item.label}
                 </Link>

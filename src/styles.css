@@ -424,9 +424,9 @@ html {
   height: 27px;
 }
 .premium-header .nav-link {
-  text-transform: none;
-  letter-spacing: -0.02em;
-  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
 }
 .premium-header .page-grid {
   height: 86px;
@@ -508,6 +508,8 @@ html {
 .hero-eyebrow {
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
+  margin-bottom: 28px;
   font-size: 11px;
   letter-spacing: 0.015em;
 }
@@ -516,7 +518,7 @@ html {
   line-height: 0.99;
   letter-spacing: -0.075em;
   font-weight: 500;
-  margin-top: auto;
+  margin-top: 0;
   margin-bottom: 36px;
 }
 .hero-title > span {
@@ -904,18 +906,21 @@ html {
   padding: 25px 0;
   color: #b8b8b8;
   font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 .footer-bottom > div {
   display: flex;
   gap: 26px;
 }
 .footer-wordmark {
-  margin-top: 45px;
+  margin-top: 64px;
+  padding-bottom: 72px;
 }
 .footer-wordmark img {
   display: block;
-  width: auto;
-  height: clamp(150px, 31vw, 480px);
+  width: 50%;
+  height: auto;
   max-width: none;
 }
 @media (min-width: 1600px) {
@@ -936,7 +941,7 @@ html {
   }
   .hero-title {
     font-size: clamp(43px, 9vw, 69px);
-    margin-top: auto;
+    margin-top: 0;
     margin-bottom: 28px;
     letter-spacing: -0.07em;
   }
@@ -1084,10 +1089,12 @@ html {
     gap: 15px;
   }
   .footer-wordmark {
-    margin-top: 20px;
+    margin-top: 36px;
+    padding-bottom: 40px;
   }
   .footer-wordmark img {
-    height: 30vw;
+    width: 50%;
+    height: auto;
   }
 }
 @media (prefers-reduced-motion: reduce) {
