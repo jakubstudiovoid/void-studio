@@ -483,19 +483,6 @@ html {
   color: #f3f2ee;
   isolation: isolate;
 }
-.editorial-hero::before {
-  content: "";
-  position: absolute;
-  inset: -28%;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 78% at 100% 0%, #ff69b4 0%, #ff3d96 16%, #7a1244 40%, transparent 68%),
-    radial-gradient(ellipse 52% 58% at 0% 112%, rgb(255 105 180 / 0.42) 0%, rgb(122 18 68 / 0.22) 32%, transparent 64%),
-    linear-gradient(215deg, #3d1026 0%, #12060c 40%, #000 72%);
-  background-size: 160% 160%;
-  animation: hero-wash 16s ease-in-out infinite alternate;
-}
 .hero-frame {
   position: relative;
   z-index: 1;
@@ -1607,3 +1594,12 @@ html {
     flex-wrap: wrap;
   }
 }
+
+/* VOID sculpture: silk filaments, dark centre, protected text contrast. */
+.hero-art {position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.hero-art canvas {width:100%;height:100%;display:block;position:absolute;inset:0;}
+.hero-art-halo {position:absolute;width:65%;aspect-ratio:1;right:-8%;top:-12%;background:radial-gradient(ellipse,rgba(145,37,91,.15),transparent 66%);}
+.hero-art-shade {position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55),transparent 72%),linear-gradient(0deg,#000 0%,rgba(0,0,0,.76) 18%,transparent 66%);}
+.hero-motion-control {position:absolute;right:var(--space);top:190px;z-index:2;display:flex;gap:9px;align-items:center;padding:12px 14px;border:1px solid #ffffff35;border-radius:50px;background:#0008;color:#ddd0d7;font-size:10px;letter-spacing:.03em;transition:background .2s;}
+.hero-motion-control:hover {background:#37212d;}
+@media(max-width:767px){.hero-motion-control{top:156px;font-size:9px;padding:10px 12px}.hero-art-shade{background:linear-gradient(0deg,#000 0%,rgba(0,0,0,.82) 30%,transparent 80%);}}

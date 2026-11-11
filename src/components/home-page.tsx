@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { HeroSculpture } from "@/components/hero-sculpture";
 import { Mark } from "@/components/mark";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
@@ -13,35 +14,36 @@ export function HomePage() {
   return (
     <>
       <section className="editorial-hero">
+        <HeroSculpture />
         <div className="page-grid hero-frame">
-        <div className="hero-eyebrow">
-          <span>
-            <i className="status-dot" /> One-man designové studio
-          </span>
-          <span>Jablonec nad Nisou, CZ</span>
-        </div>
-        <h1 className="hero-title">
-          Silné značky.
-          <br />
-          <span>Výjimečné weby.</span>
-        </h1>
-        <div className="hero-bottom">
-          <a className="round-link" href="#vyber" aria-label="Prohlédnout vybrané projekty">
-            <ArrowDown size={22} />
-          </a>
-          <p>
-            Od první myšlenky po poslední pixel.
+          <div className="hero-eyebrow">
+            <span>
+              <i className="status-dot" /> One-man designové studio
+            </span>
+            <span>Jablonec nad Nisou, CZ</span>
+          </div>
+          <h1 className="hero-title">
+            Silné značky.
             <br />
-            Tvoříme weby a vizuální identity,
-            <br />
-            které dávají značkám vlastní tvář.
-          </p>
-          <span className="micro">
-            DESIGN & DEVELOPMENT
-            <br />
-            SELECTED WORK / 2025—26
-          </span>
-        </div>
+            <span>Výjimečné weby.</span>
+          </h1>
+          <div className="hero-bottom">
+            <a className="round-link" href="#vyber" aria-label="Prohlédnout vybrané projekty">
+              <ArrowDown size={22} />
+            </a>
+            <p>
+              Od první myšlenky po poslední pixel.
+              <br />
+              Tvoříme weby a vizuální identity,
+              <br />
+              které dávají značkám vlastní tvář.
+            </p>
+            <span className="micro">
+              DESIGN & DEVELOPMENT
+              <br />
+              SELECTED WORK / 2025—26
+            </span>
+          </div>
         </div>
       </section>
       <section className="page-grid selected-section" id="vyber">
