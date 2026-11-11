@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "@fontsource-variable/space-grotesk/wght.css";
-@import "@fontsource/grenze-gotisch/latin-900.css";
 
 @theme {
   --font-sans: "Space Grotesk Variable", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -911,22 +910,13 @@ html {
   gap: 26px;
 }
 .footer-wordmark {
-  font-family: "Grenze Gotisch", serif;
-  font-size: clamp(150px, 31vw, 480px);
-  font-weight: 900;
-  letter-spacing: 0.01em;
-  line-height: 0.8;
   margin-top: 45px;
-  padding-bottom: 0;
-  position: relative;
 }
-.footer-wordmark svg {
-  display: inline-block;
-  width: 0.16em;
-  height: 0.16em;
-  margin-left: 0.12em;
-  vertical-align: 0.42em;
-  color: currentColor;
+.footer-wordmark img {
+  display: block;
+  width: auto;
+  height: clamp(150px, 31vw, 480px);
+  max-width: none;
 }
 @media (min-width: 1600px) {
   .hero-title {
@@ -1094,8 +1084,10 @@ html {
     gap: 15px;
   }
   .footer-wordmark {
-    font-size: 30vw;
     margin-top: 20px;
+  }
+  .footer-wordmark img {
+    height: 30vw;
   }
 }
 @media (prefers-reduced-motion: reduce) {
