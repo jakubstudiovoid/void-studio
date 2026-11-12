@@ -18,7 +18,7 @@ export function HomePage() {
           src="/images/hero-bust.jpg"
           alt=""
           width={1920}
-          height={815}
+          height={1072}
         />
         <div className="page-grid hero-frame">
         <div className="hero-eyebrow">

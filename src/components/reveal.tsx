@@ -37,7 +37,7 @@ export function Reveal({
           io.disconnect();
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -47,7 +47,7 @@ export function Reveal({
     <Tag
       ref={ref as never}
       className={cn("reveal", shown && "is-in", className)}
-      style={{ transitionDelay: `${delay}ms` } as CSSProperties}
+      style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >
       {children}
     </Tag>
