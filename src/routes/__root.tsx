@@ -17,7 +17,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: pageTitle() },
       { name: "description", content: site.description },
-      { name: "theme-color", content: "#f5f4f0" },
+      { name: "theme-color", content: "#000000" },
       { name: "format-detection", content: "telephone=yes" },
       { name: "geo.region", content: "CZ-LI" },
       { name: "geo.placename", content: site.address.city },
@@ -33,12 +33,12 @@ export const Route = createRootRoute({
 
 function RootDocument() {
   return (
-    <html lang="cs" suppressHydrationWarning className="antialiased">
+    <html lang="cs" suppressHydrationWarning className="dark antialiased">
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              '(function(){try{if(localStorage.getItem("void-theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}})()',
+              '(function(){try{if(localStorage.getItem("void-theme")==="light")document.documentElement.classList.remove("dark")}catch(e){}})()',
           }}
         />
         <HeadContent />

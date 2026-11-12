@@ -7,7 +7,7 @@ export function seoHead(title: string | undefined, description: string) {
       { name: "description", content: description },
       { name: "author", content: site.brand },
       { name: "robots", content: "index, follow" },
-      { name: "theme-color", content: "#f5f4f0" },
+      { name: "theme-color", content: "#000000" },
       { property: "og:title", content: full },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },

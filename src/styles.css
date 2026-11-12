@@ -512,7 +512,7 @@ html {
   filter: none;
 }
 .premium-header.is-dark .nav-link {
-  color: #d6d6d1;
+  color: #fff;
 }
 .premium-header.is-dark .nav-link:hover,
 .premium-header.is-dark .nav-link.is-active {
@@ -551,6 +551,7 @@ html {
   height: 100%;
   object-fit: cover;
   object-position: 58% center;
+  filter: grayscale(1);
   pointer-events: none;
 }
 .editorial-hero::before {
@@ -1693,11 +1694,15 @@ html.dark {
   --color-ink: #f3f2ee;
   --color-ink-muted: #b7b7b2;
 }
-html.dark .premium-header .nav-link {
-  color: #c8c8c3;
-}
+html.dark .premium-header .nav-link,
 html.dark .premium-header.is-dark .nav-link {
-  color: #d6d6d1;
+  color: #fff;
+}
+html.dark .premium-header .nav-link:hover,
+html.dark .premium-header .nav-link.is-active,
+html.dark .premium-header.is-dark .nav-link:hover,
+html.dark .premium-header.is-dark .nav-link.is-active {
+  color: var(--accent);
 }
 html.dark .premium-header .brand-mark {
   filter: none;
@@ -1705,10 +1710,18 @@ html.dark .premium-header .brand-mark {
 html.dark .project-visual,
 html.dark .visual-notes,
 html.dark .pricing-care,
-html.dark .collaboration-brief,
+html.dark .collaboration-brief {
+  background: #000;
+}
 html.dark .pricing-package,
 html.dark .pricing-package.is-featured {
-  background: #000;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid rgb(255 255 255 / 0.16);
+}
+html.dark .pricing-package.is-featured {
+  border-top-color: #ff69b4;
+  background: linear-gradient(180deg, rgb(255 105 180 / 0.16) 0%, rgb(255 105 180 / 0.04) 28%, transparent 62%);
 }
 html.dark .package-time,
 html.dark .package-cta {
