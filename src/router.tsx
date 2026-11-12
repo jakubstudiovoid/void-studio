@@ -3,9 +3,5 @@ import { AppErrorComponent } from "@/lib/error-component";
 import { routeTree } from "./routeTree.gen";
 
 export function getRouter() {
-  return createRouter({
-    routeTree,
-    defaultErrorComponent: AppErrorComponent,
-    defaultViewTransition: true,
-  });
+  return createRouter({ routeTree, defaultErrorComponent: AppErrorComponent });
 }
