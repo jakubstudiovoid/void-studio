@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { nav, site } from "@/data/site";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -19,8 +20,7 @@ export function Header() {
         setOnDark(false);
         return;
       }
-      const hero = document.querySelector(".editorial-hero");
-      setOnDark(hero ? hero.getBoundingClientRect().bottom > 72 : false);
+      setOnDark(window.scrollY < 8);
     };
     update();
     window.addEventListener("scroll", update, { passive: true });
@@ -74,7 +74,7 @@ export function Header() {
       </a>
       <header
         className={cn(
-          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color,color,border-color] duration-700",
+          "premium-header fixed inset-x-0 top-0 z-50 transition-[background-color,color,border-color] duration-1000",
           onDark && !open ? "is-dark" : "bg-bg/90",
         )}
       >
@@ -93,6 +93,7 @@ export function Header() {
             ))}
           </nav>
           <div className="hidden items-center gap-5 lg:flex">
+            <ThemeToggle />
             <Button asChild size="md" className="header-cta">
               <Link to="/kontakt">
                 Proberme projekt
@@ -100,7 +101,9 @@ export function Header() {
               </Link>
             </Button>
           </div>
-          <button
+          <div className="flex items-center lg:hidden">
+            <ThemeToggle />
+            <button
             ref={toggleRef}
             type="button"
             className="relative flex size-11 items-center justify-center lg:hidden"
@@ -112,23 +115,24 @@ export function Header() {
             <span className="sr-only">Menu</span>
             <span
               className={cn(
-                "absolute h-px w-5 bg-current transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "absolute h-px w-5 bg-current transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 open ? "translate-y-0 rotate-45" : "-translate-y-1.5",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-5 bg-current transition-opacity duration-500",
+                "absolute h-px w-5 bg-current transition-opacity duration-700",
                 open ? "opacity-0" : "opacity-100",
               )}
             />
             <span
               className={cn(
-                "absolute h-px w-5 bg-current transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                "absolute h-px w-5 bg-current transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
                 open ? "translate-y-0 -rotate-45" : "translate-y-1.5",
               )}
             />
           </button>
+          </div>
         </div>
       </header>
 
@@ -136,7 +140,7 @@ export function Header() {
         ref={menuRef}
         id="mobile-navigation"
         className={cn(
-          "fixed inset-0 z-40 bg-bg transition-opacity duration-700 lg:hidden",
+          "fixed inset-0 z-40 bg-bg transition-opacity duration-1000 lg:hidden",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
         aria-hidden={!open}
@@ -152,7 +156,7 @@ export function Header() {
                 key={item.to}
                 style={{ transitionDelay: open ? `${80 + i * 60}ms` : "0ms" }}
                 className={cn(
-                  "transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  "transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
                   open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
                 )}
               >

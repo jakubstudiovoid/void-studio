@@ -4,14 +4,15 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-medium tracking-[0.14em] uppercase text-xs transition-[color,background-color,border-color,transform,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:pointer-events-none disabled:opacity-40 active:not-disabled:scale-[0.98] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4",
+  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-medium tracking-[0.14em] uppercase text-xs border-[1.75px] transition-[color,background-color,border-color,transform,opacity] duration-[1200ms] ease-[cubic-bezier(0.23,1,0.32,1)] disabled:pointer-events-none disabled:opacity-40 active:not-disabled:scale-[0.98] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4",
   {
     variants: {
       variant: {
-        solid: "bg-fg text-bg hover:bg-steel hover:text-ink outline-fg",
+        solid:
+          "border-fg bg-fg text-bg hover:border-steel hover:bg-transparent hover:text-steel",
         outline:
-          "border border-fg bg-transparent text-fg hover:bg-fg hover:text-bg outline-fg",
-        ghost: "text-fg hover:text-steel outline-fg",
+          "border-fg bg-transparent text-fg hover:border-steel hover:bg-transparent hover:text-steel",
+        ghost: "border-transparent text-fg hover:border-transparent hover:text-steel",
       },
       size: {
         md: "h-11 px-6",

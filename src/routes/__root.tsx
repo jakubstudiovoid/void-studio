@@ -35,6 +35,12 @@ function RootDocument() {
   return (
     <html lang="cs" suppressHydrationWarning className="antialiased">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              '(function(){try{if(localStorage.getItem("void-theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}})()',
+          }}
+        />
         <HeadContent />
       </head>
       <body className="bg-bg text-fg">

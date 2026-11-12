@@ -13,12 +13,19 @@ export function HomePage() {
   return (
     <>
       <section className="editorial-hero">
+        <img
+          className="hero-still"
+          src="/images/hero-bust.jpg"
+          alt=""
+          width={1920}
+          height={815}
+        />
         <div className="page-grid hero-frame">
         <div className="hero-eyebrow">
           <span>
             <i className="status-dot" /> One-man designové studio
           </span>
-          <span>Jablonec nad Nisou, CZ</span>
+          <span>Jablonec nad Nisou</span>
         </div>
         <h1 className="hero-title">
           Silné značky.
@@ -120,7 +127,7 @@ export function HomePage() {
                 loading="lazy"
               />
               <figcaption>
-                <span>Edengarden</span>
+                <span>edengarden*</span>
                 <span>Obal & produktový vizuál</span>
               </figcaption>
             </Reveal>
