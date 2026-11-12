@@ -38,7 +38,8 @@ function PrivacyPage() {
         </h2>
         <p className="mt-4">
           Web nepoužívá cookies pro sledování ani nástroje typu Google
-          Analytics.
+          Analytics. Návštěvnost měří Vercel Web Analytics, bez cookies a bez
+          identifikace osob.
         </p>
         <h2 className="mt-10 font-medium text-xl tracking-tight text-fg">
           Formulář

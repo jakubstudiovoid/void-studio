@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import { ImageLock } from "@/components/image-lock";
 import { JsonLd } from "@/components/json-ld";
 import { NotFound } from "@/components/not-found";
@@ -47,6 +48,7 @@ function RootDocument() {
         <Outlet />
         <ImageLock />
         <JsonLd />
+        <Analytics />
         <Scripts />
       </body>
     </html>
