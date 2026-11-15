@@ -113,13 +113,13 @@ function ProjectPage() {
         </section>
 
         {project.gallery.length > 0 ? (
-          <section className="page-grid flex flex-col gap-6 pb-6 md:gap-10 md:pb-10">
+          <section className="page-grid project-gallery">
             {project.gallery.map((shot) => (
               <img
                 key={shot.src}
                 src={shot.src}
                 alt={shot.alt}
-                className="w-full h-auto"
+                loading="lazy"
                 decoding="async"
               />
             ))}
