@@ -649,9 +649,9 @@ html {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 20px 0;
+  padding: 28px 0;
   border-top: 1px solid var(--color-line);
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 .text-link {
   display: inline-flex;
@@ -861,7 +861,7 @@ html {
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 27px 0;
+  padding: 34px 0;
   cursor: pointer;
   list-style: none;
 }
@@ -922,7 +922,7 @@ html {
 }
 .process-steps > div {
   border-top: 1px solid var(--color-line);
-  padding-top: 20px;
+  padding-top: 28px;
 }
 .process-band h3 {
   font-size: 21px;
@@ -951,17 +951,20 @@ html {
   line-height: 0.98;
   padding: 65px 0 55px;
 }
-.footer-cta > svg {
-  position: absolute;
-  width: clamp(70px, 10vw, 150px);
-  height: auto;
-  right: 0;
-  top: 75px;
-  stroke-width: 1;
+.footer-cta > span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.08em;
+}
+.footer-cta > span > svg {
+  width: 0.62em;
+  height: 0.62em;
+  stroke-width: 1.15;
+  transform: translateY(0.06em);
   transition: transform 1.5s var(--ease-out-expo);
 }
-.footer-cta:hover > svg {
-  transform: translate(6px, -6px);
+.footer-cta:hover > span > svg {
+  transform: translate(0.04em, -0.02em);
 }
 .footer-contact {
   display: flex;
@@ -1034,6 +1037,10 @@ html {
   }
   .hero-bottom p {
     font-size: 14px;
+  }
+  .hero-bottom .round-link {
+    align-self: end;
+    margin-bottom: 5px;
   }
   .round-link {
     width: 44px;
@@ -1149,10 +1156,6 @@ html {
   .footer-cta {
     font-size: 70px;
     padding: 45px 0;
-  }
-  .footer-cta > svg {
-    top: 55px;
-    width: 60px;
   }
   .footer-contact {
     flex-direction: column;
@@ -1329,7 +1332,7 @@ html {
   grid-template-columns: 1fr 0.65fr 1.4fr;
   gap: 30px;
   border-top: 1px solid var(--color-line);
-  padding: 27px 0;
+  padding: 36px 0;
   align-items: baseline;
 }
 .price-item-list h3 {
@@ -1401,7 +1404,7 @@ html {
   list-style: none;
   font-size: 17px;
   line-height: 1.5;
-  padding: 22px 0;
+  padding: 30px 0;
   cursor: pointer;
   letter-spacing: -0.025em;
 }
@@ -1453,7 +1456,7 @@ html {
 }
 .collaboration-promises > div {
   border-top: 1px solid var(--color-line);
-  padding-top: 25px;
+  padding-top: 34px;
 }
 .collaboration-promises h2 {
   font-size: clamp(24px, 2.5vw, 36px);
@@ -1519,7 +1522,7 @@ html {
   gap: 24px;
   font-size: 16px;
   line-height: 1.6;
-  padding: 22px 0;
+  padding: 30px 0;
   border-top: 1px solid #c9ccc0;
 }
 .collaboration-brief li > span {

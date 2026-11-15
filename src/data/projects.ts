@@ -1,8 +1,8 @@
 export type ProjectTone = "ph-01" | "ph-02" | "ph-03" | "ph-04" | "ph-05" | "ph-06" | "ph-07";
 
 export type ProjectShot = {
-  label: string;
-  aspect: "cover" | "wide" | "square";
+  src: string;
+  alt: string;
 };
 
 export type Project = {
@@ -124,7 +124,16 @@ export const projects: Project[] = [
     tone: "ph-04",
     image: "/images/projects/sweet-night-club.jpg",
     url: "https://www.nightclubsweet.cz",
-    gallery: [],
+    gallery: [
+      { src: "/images/projects/sweet/cap.jpg", alt: "Čepice Sweet Night Club" },
+      { src: "/images/projects/sweet/triko.jpg", alt: "Triko Sweet Night Club, přední strana" },
+      { src: "/images/projects/sweet/triko-zad.jpg", alt: "Triko Sweet Night Club, zadní strana" },
+      { src: "/images/projects/sweet/vizitky.jpg", alt: "Vizitky Sweet Night Club" },
+      { src: "/images/projects/sweet/kondomy.jpg", alt: "Kondomy Sweet Night Club" },
+      { src: "/images/projects/sweet/plakat-1.jpg", alt: "Plakát Sweet Night Club" },
+      { src: "/images/projects/sweet/plakat-3.jpg", alt: "Plakát Sweet Night Club, sklenice" },
+      { src: "/images/projects/sweet/plakat-7.jpg", alt: "Plakát Sweet Night Club, třešně" },
+    ],
   },
   {
     slug: "green-vision",

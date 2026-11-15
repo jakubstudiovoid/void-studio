@@ -12,8 +12,10 @@ export function Footer() {
         <Link to="/kontakt" className="footer-cta">
           Máte vizi?
           <br />
-          Začněme.
-          <ArrowUpRight aria-hidden="true" />
+          <span>
+            Začněme.
+            <ArrowUpRight aria-hidden="true" />
+          </span>
         </Link>
         <div className="footer-contact">
           <a href={site.emailHref}>{site.email} ↗</a>
