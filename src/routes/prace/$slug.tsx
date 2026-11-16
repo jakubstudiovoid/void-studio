@@ -115,7 +115,13 @@ function ProjectPage() {
         </section>
 
         {project.gallery.length > 0 ? (
-          <section className="page-grid project-gallery">
+          <section
+            className={
+              project.slug === "edengarden"
+                ? "page-grid project-gallery is-flavors"
+                : "page-grid project-gallery"
+            }
+          >
             {project.gallery.map((shot) => (
               <img
                 key={shot.src}
