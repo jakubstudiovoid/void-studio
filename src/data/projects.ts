@@ -1,3 +1,5 @@
+export type ShotAspect = "cover" | "wide" | "square";
+
 export type ProjectTone = "ph-01" | "ph-02" | "ph-03" | "ph-04" | "ph-05" | "ph-06" | "ph-07";
 
 export type ProjectShot = {
@@ -175,6 +177,29 @@ export const projects: Project[] = [
     url: "https://www.glideedge.cz",
     gallery: [],
   },
+  {
+    slug: "edengarden",
+    title: "edengarden*",
+    client: "edengarden*",
+    location: "Česko",
+    year: "2026",
+    category: "Obal",
+    excerpt: "Obal a produktové vizuály. Raspberry fusion, Blueberry fusion, Orange dreams.",
+    body: [
+      "edengarden* potřeboval obal a klíčové vizuály pro Raspberry fusion, Blueberry fusion a Orange dreams.",
+      "Sáček nese značku, název a obsah. Každá příchuť má vlastní barvu kouře a ovoce.",
+      "Výstupem je obal a produktová fotografie.",
+    ],
+    outputs: ["Obal", "Produktový vizuál"],
+    featured: false,
+    tone: "ph-04",
+    image: "/images/projects/edengarden/raspberry-fusion.jpg",
+    gallery: [
+      { src: "/images/projects/edengarden/raspberry-fusion.jpg", alt: "edengarden* Raspberry fusion" },
+      { src: "/images/projects/edengarden/blueberry-fusion.jpg", alt: "edengarden* Blueberry fusion" },
+      { src: "/images/projects/edengarden/orange-dreams.jpg", alt: "edengarden* Orange dreams" },
+    ],
+  },
 ];
 
 export function getProject(slug: string) {
@@ -211,7 +236,7 @@ export const toneClass: Record<ProjectTone, string> = {
   "ph-07": "bg-ph-07",
 };
 
-export const aspectClass: Record<ProjectShot["aspect"], string> = {
+export const aspectClass: Record<ShotAspect, string> = {
   cover: "aspect-4/3",
   wide: "aspect-video",
   square: "aspect-square",

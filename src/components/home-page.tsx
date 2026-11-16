@@ -23,7 +23,7 @@ export function HomePage() {
         <div className="page-grid hero-frame">
         <div className="hero-eyebrow">
           <span>
-            <i className="status-dot" /> One-man designové studio
+            <i className="status-dot" /> One-man design studio
           </span>
           <span>Jablonec nad Nisou</span>
         </div>
@@ -55,7 +55,7 @@ export function HomePage() {
         <div className="section-bar">
           <span className="micro">01 / VYBRANÁ PRÁCE</span>
           <Link to="/prace" className="text-link">
-            Všechny projekty <span className="count">07</span>
+            Všechny projekty <span className="count">08</span>
             <ArrowUpRight size={16} />
           </Link>
         </div>
@@ -118,18 +118,24 @@ export function HomePage() {
             </div>
           </Reveal>
           <div className="notes-grid">
-            <Reveal as="figure">
-              <img
-                src="/images/hero-edengarden.jpg"
-                alt="Produktový vizuál Edengarden Raspberry Fusion s růžovým kouřem"
-                width="1600"
-                height="1200"
-                loading="lazy"
-              />
-              <figcaption>
-                <span>edengarden*</span>
-                <span>Obal & produktový vizuál</span>
-              </figcaption>
+            <Reveal>
+              <Link to="/prace/$slug" params={{ slug: "edengarden" }}>
+                <figure>
+                  <img
+                    src="/images/hero-edengarden.jpg"
+                    alt="Produktový vizuál edengarden* Raspberry fusion"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <span>edengarden*</span>
+                    <span>
+                      Obal & produktový vizuál <ArrowUpRight size={14} />
+                    </span>
+                  </figcaption>
+                </figure>
+              </Link>
             </Reveal>
             <Reveal className="note-offset" delay={160}>
               <Link to="/prace/$slug" params={{ slug: "glide-edge" }}>

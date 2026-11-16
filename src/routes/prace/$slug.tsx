@@ -48,6 +48,7 @@ function ProjectPage() {
           </h1>
         </header>
 
+        {project.slug === "edengarden" ? null : (
         <div className="page-grid">
           <figure className="img-frame overflow-hidden bg-bg-elevated">
             <img
@@ -61,6 +62,7 @@ function ProjectPage() {
             />
           </figure>
         </div>
+        )}
 
         <section className="page-grid py-14 md:py-20">
           <div className="grid gap-12 md:grid-cols-12">

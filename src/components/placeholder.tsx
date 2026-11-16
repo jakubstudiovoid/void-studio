@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 import {
   aspectClass,
   toneClass,
-  type ProjectShot,
   type ProjectTone,
+  type ShotAspect,
 } from "@/data/projects";
 
 export function Placeholder({
@@ -16,7 +16,7 @@ export function Placeholder({
   tone: ProjectTone;
   label?: string;
   index?: string;
-  aspect?: ProjectShot["aspect"];
+  aspect?: ShotAspect;
   className?: string;
 }) {
   const hasMeta = Boolean(index || label);
