@@ -17,8 +17,8 @@ export function HomePage() {
           className="hero-still"
           src="/images/hero-bust.jpg"
           alt=""
-          width={1920}
-          height={1072}
+          width={2400}
+          height={1339}
         />
         <div className="page-grid hero-frame">
         <div className="hero-eyebrow">
@@ -55,7 +55,7 @@ export function HomePage() {
         <div className="section-bar">
           <span className="micro">01 / VYBRANÁ PRÁCE</span>
           <Link to="/prace" className="text-link">
-            Všechny projekty <span className="count">08</span>
+            Všechny projekty <span className="count">11</span>
             <ArrowUpRight size={16} />
           </Link>
         </div>

@@ -48,7 +48,7 @@ function ProjectPage() {
           </h1>
         </header>
 
-        {project.slug === "edengarden" ? null : (
+        {project.slug === "edengarden" || project.slug === "pizza-speed" || project.slug === "nostalgie" ? null : (
         <div className="page-grid">
           <figure className="img-frame overflow-hidden bg-bg-elevated">
             <img
@@ -115,11 +115,39 @@ function ProjectPage() {
         </section>
 
         {project.gallery.length > 0 ? (
+          project.slug === "edengarden" ? (
+            <>
+              <section className="page-grid project-gallery is-flavors">
+                {project.gallery.slice(0, 3).map((shot) => (
+                  <img
+                    key={shot.src}
+                    src={shot.src}
+                    alt={shot.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
+              </section>
+              <section className="page-grid project-gallery">
+                {project.gallery.slice(3).map((shot) => (
+                  <img
+                    key={shot.src}
+                    src={shot.src}
+                    alt={shot.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ))}
+              </section>
+            </>
+          ) : (
           <section
             className={
-              project.slug === "edengarden"
-                ? "page-grid project-gallery is-flavors"
-                : "page-grid project-gallery"
+              project.slug === "bistro-za-vodou"
+                ? "page-grid project-gallery is-uniform"
+                : project.slug === "green-vision"
+                  ? "page-grid project-gallery is-trio"
+                  : "page-grid project-gallery"
             }
           >
             {project.gallery.map((shot) => (
@@ -127,11 +155,13 @@ function ProjectPage() {
                 key={shot.src}
                 src={shot.src}
                 alt={shot.alt}
+                className={shot.wide ? "is-wide" : shot.center ? "is-center" : undefined}
                 loading="lazy"
                 decoding="async"
               />
             ))}
           </section>
+          )
         ) : null}
 
         <section className="border-t border-line">
